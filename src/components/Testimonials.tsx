@@ -8,6 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { images } from "../utils/imageImports";
 
 interface Testimonial {
     id: number;
@@ -24,7 +25,7 @@ const testimonialsData: Testimonial[] = [
         name: "Donald Jackman",
         position: "Marketing Manager",
         rating: 5,
-        image: "/images/testimonial-1.jpg",
+        image: images.testimonial1,
         content:
             "From the very first meeting, they understood my vision and helped me find the perfect property. Their attention to detail and commitment to client satisfaction is unmatched.",
     },
@@ -33,7 +34,7 @@ const testimonialsData: Testimonial[] = [
         name: "Richard Nelson",
         position: "UI/UX Designer",
         rating: 4,
-        image: "/images/testimonial-2.jpg",
+        image: images.testimonial2,
         content:
             "From the very first meeting, they understood my vision and helped me find the perfect property. Their attention to detail and commitment to client satisfaction is unmatched.",
     },
@@ -42,7 +43,7 @@ const testimonialsData: Testimonial[] = [
         name: "James Washington",
         position: "Co-Founder",
         rating: 5,
-        image: "/images/testimonial-3.jpg",
+        image: images.testimonial3,
         content:
             "From the very first meeting, they understood my vision and helped me find the perfect property. Their attention to detail and commitment to client satisfaction is unmatched.",
     },

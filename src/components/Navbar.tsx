@@ -18,6 +18,24 @@ const navItems: NavItem[] = [
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const handleNavLinkClick = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        href: string
+    ) => {
+        e.preventDefault();
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+
+        // If mobile menu is open, close it
+        if (isOpen) {
+            setIsOpen(false);
+        }
+    };
+
     return (
         <nav className="bg-dark text-white py-4 sticky top-0 z-50">
             <div className="container mx-auto px-4 flex justify-between items-center">
@@ -31,6 +49,7 @@ const Navbar = () => {
                         <a
                             key={item.label}
                             href={item.href}
+                            onClick={(e) => handleNavLinkClick(e, item.href)}
                             className="text-white hover:text-primary transition-colors"
                         >
                             {item.label}

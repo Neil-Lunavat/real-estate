@@ -7,6 +7,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { images } from "../utils/imageImports";
 
 interface Project {
     id: number;
@@ -22,42 +23,42 @@ const projectsData: Project[] = [
         title: "Skyline Haven",
         location: "California",
         price: "$2,50,000",
-        image: "/assets/images/project-1.jpg",
+        image: images.project1,
     },
     {
         id: 2,
         title: "Vista Verde",
         location: "San Francisco",
         price: "$2,50,000",
-        image: "/assets/images/project-2.jpg",
+        image: images.project2,
     },
     {
         id: 3,
         title: "Serenity Suites",
         location: "Chicago",
         price: "$2,50,000",
-        image: "/assets/images/project-3.jpg",
+        image: images.project3,
     },
     {
         id: 4,
         title: "Central Square",
         location: "Los Angeles",
         price: "$2,50,000",
-        image: "/assets/images/project-4.jpg",
+        image: images.project4,
     },
     {
         id: 5,
         title: "Coastal Retreat",
         location: "Miami",
         price: "$3,25,000",
-        image: "/assets/images/project-1.jpg",
+        image: images.project1,
     },
     {
         id: 6,
         title: "Urban Heights",
         location: "New York",
         price: "$4,75,000",
-        image: "/assets/images/project-2.jpg",
+        image: images.project2,
     },
 ];
 

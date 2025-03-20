@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { images } from "../utils/imageImports";
 
 interface StatItem {
     value: string;
@@ -28,7 +29,7 @@ const About = () => {
                             viewport={{ once: true }}
                         >
                             <img
-                                src="/assets/images/scenery.jpg"
+                                src={images.testimonial1}
                                 alt="Modern Building"
                                 className="w-full h-auto"
                             />
