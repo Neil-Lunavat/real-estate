@@ -21,7 +21,7 @@ const Newsletter = () => {
                     <div className="col-span-1">
                         <div className="flex items-center mb-4">
                             <img
-                                src="/images/logo.svg"
+                                src="/assets/images/logo.svg"
                                 alt="Estate Logo"
                                 className="h-8 w-8 mr-2"
                             />

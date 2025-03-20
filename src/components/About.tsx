@@ -28,7 +28,7 @@ const About = () => {
                             viewport={{ once: true }}
                         >
                             <img
-                                src="../assets/images/scenery.jpg"
+                                src="/assets/images/scenery.jpg"
                                 alt="Modern Building"
                                 className="w-full h-auto"
                             />
