@@ -7,7 +7,7 @@ export const scrollToSection = (
 
     if (section) {
         const offsetTop =
-            section.getBoundingClientRect().top + window.pageYOffset;
+            section.getBoundingClientRect().top + window.pageYOffset - 32;
 
         window.scrollTo({
             top: offsetTop,

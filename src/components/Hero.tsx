@@ -48,19 +48,27 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="rounded-full text-base backdrop-blur-sm border-white text-white hover:bg-white hover:text-gray-900 transition-all"
-                        asChild
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-block"
                     >
-                        <a
-                            href="#projects"
-                            onClick={(e) => scrollToSection(e, "#projects")}
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="relative rounded-full text-white text-lg font-medium overflow-hidden group"
+                            asChild
                         >
-                            Amenities
-                        </a>
-                    </Button>
+                            <a
+                                href="#amenities"
+                                onClick={(e) =>
+                                    scrollToSection(e, "#amenities")
+                                }
+                            >
+                                Amenities
+                            </a>
+                        </Button>
+                    </motion.div>
 
                     <motion.div
                         whileHover={{ scale: 1.05 }}

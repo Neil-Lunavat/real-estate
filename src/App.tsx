@@ -4,6 +4,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 // import Testimonials from "./components/Testimonials";
 import Amenities from "./components/Amenities";
+import ProjectSpecifications from "./components/ProjectSpecifications"; // Add this import
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ function App() {
                 <Projects />
                 {/* <Testimonials /> */}
                 <Amenities />
+                <ProjectSpecifications /> {/* Add the new component here */}
                 <Contact />
                 <Newsletter />
             </main>
