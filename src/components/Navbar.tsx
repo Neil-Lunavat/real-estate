@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/utils/scrollUtils";
 
@@ -42,13 +41,6 @@ const Navbar = () => {
                         </a>
                     ))}
                 </div>
-
-                <Button
-                    variant="outline"
-                    className="bg-white text-dark hover:bg-gray-200"
-                >
-                    Sign up
-                </Button>
 
                 {/* Mobile Menu Button */}
                 <button
