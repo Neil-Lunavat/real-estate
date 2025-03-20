@@ -75,31 +75,39 @@ const Projects = () => {
                     </p>
                 </div>
 
-                {/* Desktop View (Grid) */}
-                <div className="hidden lg:block">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {projectsData.slice(0, 4).map((project) => (
-                            <ProjectCard key={project.id} project={project} />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Mobile and Tablet View (Carousel) */}
-                <div className="lg:hidden relative mx-auto max-w-5xl">
-                    <Carousel className="w-full">
+                <div className="relative mx-auto max-w-6xl">
+                    <Carousel
+                        opts={{
+                            align: "start",
+                            loop: true,
+                        }}
+                        className="w-full"
+                    >
                         <CarouselContent>
                             {projectsData.map((project) => (
                                 <CarouselItem
                                     key={project.id}
-                                    className="md:basis-1/2"
+                                    className="pl-4 md:basis-1/2 lg:basis-1/3"
                                 >
-                                    <ProjectCard project={project} />
+                                    <div className="p-1">
+                                        <ProjectCard project={project} />
+                                    </div>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <div className="flex justify-center mt-6">
-                            <CarouselPrevious className="static transform-none mx-2" />
-                            <CarouselNext className="static transform-none mx-2" />
+
+                        {/* Desktop/tablet navigation arrows positioned on sides */}
+                        <div className="absolute -left-12 top-1/2 -translate-y-1/2 hidden md:block">
+                            <CarouselPrevious />
+                        </div>
+                        <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden md:block">
+                            <CarouselNext />
+                        </div>
+
+                        {/* Mobile navigation arrows centered below */}
+                        <div className="flex justify-center mt-6 md:hidden pt-4">
+                            <CarouselPrevious className="relative static transform-none mx-2" />
+                            <CarouselNext className="relative static transform-none mx-2" />
                         </div>
                     </Carousel>
                 </div>

@@ -5,31 +5,35 @@ import { scrollToSection } from "@/utils/scrollUtils";
 
 const Hero = () => {
     return (
-        <section className="relative h-screen flex items-center">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src={images.background}
-                    alt="Modern Home"
-                    className="w-full h-full object-cover"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-dark opacity-60"></div>
-            </div>
+        <section className="relative h-screen flex items-center overflow-hidden">
+            {/* Background Image with Parallax */}
+            <div
+                className="absolute inset-0 z-0 bg-cover bg-center"
+                style={{
+                    backgroundImage: `url(${images.background})`,
+                    filter: "brightness(0.8)",
+                }}
+            />
 
-            <div className="container mx-auto px-4 z-10 text-center text-white">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 opacity-80"></div>
+
+            {/* Content */}
+            <div className="container mx-auto px-4 z-10 text-center">
                 <motion.h1
-                    className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6"
+                    className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white drop-shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    Explore homes that <br />
-                    fit your dreams
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                        Explore homes that <br />
+                        fit your dreams
+                    </span>
                 </motion.h1>
 
                 <motion.p
-                    className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-200"
+                    className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-200 font-light"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -45,22 +49,22 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <Button
-                        variant="secondary"
+                        variant="outline"
                         size="lg"
-                        className="rounded-full text-base"
+                        className="rounded-full text-base backdrop-blur-sm border-white text-white hover:bg-white hover:text-gray-900 transition-all"
                         asChild
                     >
                         <a
                             href="#projects"
                             onClick={(e) => scrollToSection(e, "#projects")}
                         >
-                            Projects
+                            View Projects
                         </a>
                     </Button>
                     <Button
                         variant="default"
                         size="lg"
-                        className="rounded-full text-base"
+                        className="rounded-full text-base bg-gradient-to-r from-sky-400 to-blue-500 hover:shadow-lg transition-all hover:-translate-y-1 border-none"
                         asChild
                     >
                         <a

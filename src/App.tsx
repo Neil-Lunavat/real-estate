@@ -9,19 +9,23 @@ import Footer from "./components/Footer";
 import WelcomeDialog from "./components/WelcomeDialog";
 import { Toaster } from "./components/ui/sonner";
 
+import "./index.css";
+
 function App() {
     return (
-        <div className="font-sans" id="home">
+        <div className="font-sans antialiased overflow-hidden" id="home">
             <Navbar />
-            <Hero />
-            <About />
-            <Projects />
-            <Testimonials />
-            <Contact />
-            <Newsletter />
+            <main>
+                <Hero />
+                <About />
+                <Projects />
+                <Testimonials />
+                <Contact />
+                <Newsletter />
+            </main>
             <Footer />
             <WelcomeDialog />
-            <Toaster />
+            <Toaster position="top-right" />
         </div>
     );
 }

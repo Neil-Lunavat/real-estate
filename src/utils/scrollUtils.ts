@@ -1,20 +1,20 @@
 export const scrollToSection = (
-    e: React.MouseEvent<HTMLElement>,
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     sectionId: string
 ) => {
     e.preventDefault();
+    const section = document.querySelector(sectionId);
 
-    // Handle both hash links (#section) and full IDs (section)
-    const targetId = sectionId.startsWith("#") ? sectionId : `#${sectionId}`;
-    const element = document.querySelector(targetId);
+    if (section) {
+        const offsetTop =
+            section.getBoundingClientRect().top + window.pageYOffset;
 
-    if (element) {
-        element.scrollIntoView({
+        window.scrollTo({
+            top: offsetTop,
             behavior: "smooth",
-            block: "start",
         });
 
-        // Update URL without causing page reload
-        window.history.pushState(null, "", targetId);
+        // Update URL without page reload
+        history.pushState(null, "", sectionId);
     }
 };
