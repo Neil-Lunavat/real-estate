@@ -12,7 +12,7 @@ const navItems: NavItem[] = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Amenities", href: "#amenities" },
 ];
 
 const Navbar = () => {
