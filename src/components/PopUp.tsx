@@ -152,6 +152,9 @@ const PopUp = () => {
                                     >
                                         <Button
                                             type="submit"
+                                            onClick={() =>
+                                                setHasSubscribed(true)
+                                            }
                                             className="w-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-medium py-2 rounded-md transition-all"
                                         >
                                             Click Here
