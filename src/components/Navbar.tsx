@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/utils/scrollUtils";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
 interface NavItem {
@@ -23,15 +17,46 @@ const navItems: NavItem[] = [
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
 
-    // Change navbar background on scroll
+    // Change navbar background on scroll and track active section
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10);
+
+            // Determine active section
+            const sections = document.querySelectorAll("section[id], div[id]");
+            const scrollPosition = window.scrollY;
+            const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+
+            sections.forEach((section) => {
+                const sectionTop =
+                    (section as HTMLElement).offsetTop - navHeight - 100;
+                const sectionHeight = (section as HTMLElement).offsetHeight;
+
+                if (
+                    scrollPosition >= sectionTop &&
+                    scrollPosition < sectionTop + sectionHeight
+                ) {
+                    setActiveSection((section as HTMLElement).id);
+                }
+            });
         };
+
         window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial call
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Disable body scroll when mobile menu is open
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? "hidden" : "auto";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [isOpen]);
 
     return (
         <nav
@@ -59,19 +84,34 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex items-center space-x-8">
                     {navItems.map((item) => (
-                        <a
+                        <div
                             key={item.label}
-                            href={item.href}
-                            onClick={(e) => scrollToSection(e, item.href)}
-                            className={`hover:text-primary transition-colors relative group ${
-                                scrolled ? "text-gray-800" : "text-white"
-                            }`}
+                            className="relative group flex items-center"
                         >
-                            {item.label}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                            <a
+                                href={item.href}
+                                onClick={(e) => scrollToSection(e, item.href)}
+                                className={`hover:text-primary transition-colors py-2 ${
+                                    scrolled ? "text-gray-800" : "text-white"
+                                } ${
+                                    activeSection === item.href.substring(1)
+                                        ? "text-primary"
+                                        : ""
+                                }`}
+                            >
+                                {item.label}
+                            </a>
+                            {/* Enhanced underline animation */}
+                            <span
+                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500 transition-all duration-300 ${
+                                    activeSection === item.href.substring(1)
+                                        ? "w-full"
+                                        : "w-0 group-hover:w-full"
+                                }`}
+                            />
+                        </div>
                     ))}
                     <Button
                         asChild
@@ -86,53 +126,96 @@ const Navbar = () => {
                     </Button>
                 </div>
 
-                {/* Mobile Navigation - ShadCN Dropdown */}
+                {/* Mobile Navigation Button */}
                 <div className="md:hidden">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className={`focus:outline-none ${
-                                    scrolled ? "text-gray-800" : "text-white"
-                                }`}
-                            >
-                                <Menu className="h-6 w-6" />
-                                <span className="sr-only">Toggle menu</span>
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                            align="end"
-                            className="w-48 mt-2 bg-white/95 backdrop-blur-sm"
-                        >
-                            {navItems.map((item) => (
-                                <DropdownMenuItem key={item.label} asChild>
-                                    <a
-                                        href={item.href}
-                                        className="text-gray-800 hover:text-primary cursor-pointer"
-                                        onClick={(e) =>
-                                            scrollToSection(e, item.href)
-                                        }
-                                    >
-                                        {item.label}
-                                    </a>
-                                </DropdownMenuItem>
-                            ))}
-                            <DropdownMenuItem asChild>
-                                <a
-                                    href="#contact"
-                                    onClick={(e) =>
-                                        scrollToSection(e, "#contact")
-                                    }
-                                    className="text-primary font-semibold cursor-pointer"
-                                >
-                                    Contact Us
-                                </a>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
+                        className={`focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 ${
+                            scrolled ? "text-gray-800" : "text-white"
+                        }`}
+                    >
+                        {isOpen ? (
+                            <X className="h-6 w-6" />
+                        ) : (
+                            <Menu className="h-6 w-6" />
+                        )}
+                        <span className="sr-only">Toggle menu</span>
+                    </Button>
                 </div>
             </div>
+
+            {/* Enhanced Mobile Navigation Menu */}
+            <div
+                id="mobile-menu"
+                className={`md:hidden fixed left-0 right-0 z-40 shadow-lg transition-all duration-300 overflow-hidden ${
+                    scrolled ? "bg-white/95" : "bg-gray-900/95"
+                } backdrop-blur-sm ${
+                    isOpen
+                        ? "max-h-[400px] opacity-100 border-b border-gray-200"
+                        : "max-h-0 opacity-0 pointer-events-none"
+                }`}
+                aria-hidden={!isOpen}
+            >
+                <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            className={`transition-colors py-3 px-2 block relative overflow-hidden ${
+                                scrolled ? "text-gray-800" : "text-white"
+                            } ${
+                                activeSection === item.href.substring(1)
+                                    ? "text-primary"
+                                    : ""
+                            } hover:text-primary`}
+                            onClick={(e) => {
+                                scrollToSection(e, item.href);
+                                setIsOpen(false);
+                            }}
+                        >
+                            {item.label}
+                            {/* Gradient line indicator for active/hover state */}
+                            <span
+                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500 transition-all duration-300 ${
+                                    activeSection === item.href.substring(1)
+                                        ? "w-full"
+                                        : "w-0"
+                                }`}
+                            />
+                        </a>
+                    ))}
+
+                    <Button
+                        asChild
+                        className="mt-2 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 border-none transition-all"
+                    >
+                        <a
+                            href="#contact"
+                            onClick={(e) => {
+                                scrollToSection(e, "#contact");
+                                setIsOpen(false);
+                            }}
+                        >
+                            Contact Us
+                        </a>
+                    </Button>
+                </div>
+            </div>
+
+            {/* Overlay for Mobile Menu */}
+            <div
+                className={`fixed inset-0 z-30 md:hidden transition-opacity duration-300 bg-black/50 ${
+                    isOpen
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                }`}
+                onClick={() => setIsOpen(false)}
+                aria-hidden="true"
+            />
         </nav>
     );
 };
