@@ -61,19 +61,30 @@ const Hero = () => {
                             View Projects
                         </a>
                     </Button>
-                    <Button
-                        variant="default"
-                        size="lg"
-                        className="rounded-full text-base bg-gradient-to-r from-sky-400 to-blue-500 hover:shadow-lg transition-all hover:-translate-y-1 border-none"
-                        asChild
+
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-block"
                     >
-                        <a
-                            href="#contact"
-                            onClick={(e) => scrollToSection(e, "#contact")}
+                        <Button
+                            variant="default"
+                            size="lg"
+                            className="relative rounded-full text-white text-lg font-medium overflow-hidden group"
+                            asChild
                         >
-                            Contact Us
-                        </a>
-                    </Button>
+                            <a
+                                href="#contact"
+                                onClick={(e) => scrollToSection(e, "#contact")}
+                            >
+                                <span className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-500 opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+                                <span className="absolute inset-0 border-2 border-transparent group-hover:border-sky-500 rounded-full transition-all duration-300"></span>
+                                <span className="relative z-10 group-hover:text-gray-700">
+                                    Contact Us
+                                </span>
+                            </a>
+                        </Button>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
