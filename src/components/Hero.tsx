@@ -58,7 +58,7 @@ const Hero = () => {
                             href="#projects"
                             onClick={(e) => scrollToSection(e, "#projects")}
                         >
-                            View Projects
+                            Amenities
                         </a>
                     </Button>
 

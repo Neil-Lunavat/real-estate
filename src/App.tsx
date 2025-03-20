@@ -2,11 +2,11 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Testimonials from "./components/Testimonials";
+// import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
-import WelcomeDialog from "./components/WelcomeDialog";
+import PopUp from "./components/PopUp";
 import { Toaster } from "./components/ui/sonner";
 
 import "./index.css";
@@ -19,12 +19,12 @@ function App() {
                 <Hero />
                 <About />
                 <Projects />
-                <Testimonials />
+                {/* <Testimonials /> */}
                 <Contact />
                 <Newsletter />
             </main>
             <Footer />
-            <WelcomeDialog />
+            <PopUp />
             <Toaster position="top-right" />
         </div>
     );

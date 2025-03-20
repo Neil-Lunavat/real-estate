@@ -1,20 +1,35 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { images } from "../utils/imageImports";
-import { scrollToSection } from "@/utils/scrollUtils";
+import { Trophy, Building2, Hammer, Ruler } from "lucide-react";
 
 interface StatItem {
     value: string;
     label: string;
-    icon: string;
+    icon: React.ReactNode;
 }
 
 const stats: StatItem[] = [
-    { value: "10+", label: "Years", icon: "🏆" },
-    { value: "120+", label: "Projects", icon: "🏢" },
-    { value: "20M+", label: "Sq. Ft.", icon: "📏" },
-    { value: "25+", label: "Awards", icon: "🔨" },
+    {
+        value: "40+",
+        label: "Years",
+        icon: <Trophy className="w-8 h-8 text-sky-500 mx-auto" />,
+    },
+    {
+        value: "40+",
+        label: "Projects",
+        icon: <Building2 className="w-8 h-8 text-sky-500 mx-auto" />,
+    },
+    {
+        value: "5",
+        label: "On Going",
+        icon: <Hammer className="w-8 h-8 text-sky-500 mx-auto" />,
+    },
+    {
+        value: "65m",
+        label: "Building Height",
+        icon: <Ruler className="w-8 h-8 text-sky-500 mx-auto" />,
+    },
 ];
 
 const About = () => {
@@ -43,8 +58,8 @@ const About = () => {
                         </h2>
                         <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-blue-500 my-4 mx-auto rounded-full"></div>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Passionate about properties, dedicated to your
-                            vision
+                            More than 40 Years of Experience, 40+ projects
+                            delivered.
                         </p>
                     </motion.div>
                 </div>
@@ -79,18 +94,17 @@ const About = () => {
                             viewport={{ once: true }}
                         >
                             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                                A decade of excellence in real estate
+                                Highest Building in the area with height over 65
+                                metres!
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                With over 10 years in the market, we've built a
-                                reputation for delivering exceptional properties
-                                that combine innovative design with practical
-                                living. Our team is dedicated to helping you
-                                find your perfect home.
+                                Centrally located between Pune and PCMC, 1 km
+                                from Dapodi Metro Station, between Aundh
+                                Hospital
                             </p>
 
                             {/* Stats */}
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                            <div className="grid grid-cols-2 gap-4 mb-8">
                                 {stats.map((stat, index) => (
                                     <motion.div
                                         key={index}
@@ -104,7 +118,7 @@ const About = () => {
                                     >
                                         <Card className="border-none shadow-md hover:shadow-lg transition-all h-full bg-white">
                                             <CardContent className="p-4 text-center">
-                                                <div className="text-3xl mb-1">
+                                                <div className="mb-1">
                                                     {stat.icon}
                                                 </div>
                                                 <h3 className="text-2xl font-bold mb-0.5 text-sky-600">
@@ -126,7 +140,7 @@ const About = () => {
                                     whileTap={{ scale: 0.95 }}
                                     className="inline-block"
                                 >
-                                    <Button
+                                    {/* <Button
                                         className="relative px-8 py-6 rounded-full text-white text-lg font-medium overflow-hidden group"
                                         asChild
                                     >
@@ -142,7 +156,7 @@ const About = () => {
                                                 Explore Our Projects
                                             </span>
                                         </a>
-                                    </Button>
+                                    </Button> */}
                                 </motion.div>
                             </div>
                         </motion.div>
