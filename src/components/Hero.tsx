@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { images } from "../utils/imageImports";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 const Hero = () => {
     return (
@@ -49,7 +50,12 @@ const Hero = () => {
                         className="rounded-full text-base"
                         asChild
                     >
-                        <a href="#projects">Projects</a>
+                        <a
+                            href="#projects"
+                            onClick={(e) => scrollToSection(e, "#projects")}
+                        >
+                            Projects
+                        </a>
                     </Button>
                     <Button
                         variant="default"
@@ -57,7 +63,12 @@ const Hero = () => {
                         className="rounded-full text-base"
                         asChild
                     >
-                        <a href="#contact">Contact Us</a>
+                        <a
+                            href="#contact"
+                            onClick={(e) => scrollToSection(e, "#contact")}
+                        >
+                            Contact Us
+                        </a>
                     </Button>
                 </motion.div>
             </div>

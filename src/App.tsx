@@ -11,7 +11,7 @@ import { Toaster } from "./components/ui/sonner";
 
 function App() {
     return (
-        <div className="font-sans">
+        <div className="font-sans" id="home">
             <Navbar />
             <Hero />
             <About />

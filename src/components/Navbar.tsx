@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 interface NavItem {
     label: string;
@@ -9,7 +10,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-    { label: "Home", href: "#" },
+    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Testimonials", href: "#testimonials" },
@@ -17,24 +18,6 @@ const navItems: NavItem[] = [
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-    const handleNavLinkClick = (
-        e: React.MouseEvent<HTMLAnchorElement>,
-        href: string
-    ) => {
-        e.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({
-                behavior: "smooth",
-            });
-        }
-
-        // If mobile menu is open, close it
-        if (isOpen) {
-            setIsOpen(false);
-        }
-    };
 
     return (
         <nav className="bg-dark text-white py-4 sticky top-0 z-50">
@@ -49,7 +32,10 @@ const Navbar = () => {
                         <a
                             key={item.label}
                             href={item.href}
-                            onClick={(e) => handleNavLinkClick(e, item.href)}
+                            onClick={(e) => {
+                                scrollToSection(e, item.href);
+                                if (isOpen) setIsOpen(false); // Close mobile menu if open
+                            }}
                             className="text-white hover:text-primary transition-colors"
                         >
                             {item.label}
@@ -93,7 +79,10 @@ const Navbar = () => {
                                 key={item.label}
                                 href={item.href}
                                 className="text-white hover:text-primary transition-colors py-2 block"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => {
+                                    scrollToSection(e, item.href);
+                                    setIsOpen(false);
+                                }}
                             >
                                 {item.label}
                             </a>

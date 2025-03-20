@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 const Newsletter = () => {
     const [email, setEmail] = useState("");
@@ -41,6 +42,7 @@ const Newsletter = () => {
                                 <a
                                     href="#"
                                     className="text-gray-400 hover:text-white transition-colors"
+                                    onClick={(e) => scrollToSection(e, "#")}
                                 >
                                     Home
                                 </a>
@@ -49,6 +51,9 @@ const Newsletter = () => {
                                 <a
                                     href="#about"
                                     className="text-gray-400 hover:text-white transition-colors"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "#about")
+                                    }
                                 >
                                     About us
                                 </a>
@@ -57,6 +62,9 @@ const Newsletter = () => {
                                 <a
                                     href="#contact"
                                     className="text-gray-400 hover:text-white transition-colors"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "#contact")
+                                    }
                                 >
                                     Contact us
                                 </a>
@@ -65,6 +73,7 @@ const Newsletter = () => {
                                 <a
                                     href="#"
                                     className="text-gray-400 hover:text-white transition-colors"
+                                    onClick={(e) => scrollToSection(e, "#")}
                                 >
                                     Privacy policy
                                 </a>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { images } from "../utils/imageImports";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 interface StatItem {
     value: string;
@@ -85,7 +86,14 @@ const About = () => {
                             </p>
 
                             <Button className="rounded-full" size="lg" asChild>
-                                <a href="#projects">Learn more</a>
+                                <a
+                                    href="#projects"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "#projects")
+                                    }
+                                >
+                                    Learn more
+                                </a>
                             </Button>
                         </div>
                     </div>
