@@ -289,11 +289,9 @@ const Amenities = () => {
                 >
                     <Button
                         onClick={() => setShowAll(!showAll)}
-                        className="bg-[#B32626] hover:bg-sky-700 text-white px-6 flex items-center gap-1 mx-auto"
+                        className="bg-[#B32626] hover:bg-red-700 text-white px-6 flex items-center gap-1 mx-auto"
                     >
-                        <span>
-                            {!showAll ? "View all amenities" : "Hide amenities"}
-                        </span>
+                        <span>{!showAll ? "View all" : "Hide"}</span>
                         {showAll ? (
                             <ChevronUp className="h-4 w-4" />
                         ) : (

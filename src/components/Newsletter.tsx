@@ -1,33 +1,26 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { scrollToSection } from "@/utils/scrollUtils";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
+import { images } from "@/utils/imageImports";
 
 const Newsletter = () => {
-    const [email, setEmail] = useState("");
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Email submitted:", email);
-
-        // Reset form
-        setEmail("");
-    };
-
     return (
-        <section className="relative py-20 bg-gradient-to-t from-[#424242] to-[#424242] text-white overflow-hidden">
-            {/* Decorative elements */}
+        <section className="relative py-20 overflow-hidden">
+            {/* Modern UI radial gradient background - fully opaque */}
+            <div className="absolute inset-0 bg-[#2A2A2A]"></div>
+            <div className="absolute inset-0 bg-gradient-radial from-[#3A3A3A] via-[#2A2A2A] to-[#1A1A1A]"></div>
+
+            {/* Decorative elements with increased opacity */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#E64A4A] opacity-10"></div>
-                <div className="absolute top-1/2 left-10 w-72 h-72 rounded-full bg-[#B32626] opacity-10"></div>
-                <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-[#E64A4A] opacity-10"></div>
-                <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-[#B32626] opacity-5"></div>
+                <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#E64A4A] opacity-20"></div>
+                <div className="absolute top-1/2 left-10 w-72 h-72 rounded-full bg-[#B32626] opacity-20"></div>
+                <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-[#E64A4A] opacity-20"></div>
+                <div className="absolute -bottom-20 left-1/3 w-96 h-96 rounded-full bg-[#B32626] opacity-15"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    {/* Company Info Section */}
                     <div className="md:col-span-4">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -36,12 +29,17 @@ const Newsletter = () => {
                             viewport={{ once: true }}
                         >
                             <div className="flex items-center mb-6">
-                                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-                                    <span className="text-[#B32626] text-xl font-bold">
-                                        E
-                                    </span>
+                                {/* Logo and Brand Name */}
+                                <div className="z-10 flex items-center gap-3">
+                                    <div className="bg-white rounded-lg p-1.5 shadow-md">
+                                        <img
+                                            src={images.logo}
+                                            alt="Bunty Group Logo"
+                                            className="h-8 object-contain"
+                                        />
+                                    </div>
                                 </div>
-                                <span className="text-2xl font-bold">
+                                <span className="text-2xl font-bold px-4 text-white">
                                     Estate
                                 </span>
                             </div>
@@ -59,7 +57,7 @@ const Newsletter = () => {
                                 >
                                     <svg
                                         className="w-5 h-5"
-                                        fill="currentColor"
+                                        fill="white"
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
                                     >
@@ -72,7 +70,7 @@ const Newsletter = () => {
                                 >
                                     <svg
                                         className="w-5 h-5"
-                                        fill="currentColor"
+                                        fill="white"
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
                                     >
@@ -85,7 +83,7 @@ const Newsletter = () => {
                                 >
                                     <svg
                                         className="w-5 h-5"
-                                        fill="currentColor"
+                                        fill="white"
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
                                     >
@@ -96,6 +94,7 @@ const Newsletter = () => {
                         </motion.div>
                     </div>
 
+                    {/* Navigation Section */}
                     <div className="md:col-span-3 md:ml-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -103,7 +102,9 @@ const Newsletter = () => {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className="text-xl font-bold mb-6">Company</h3>
+                            <h3 className="text-xl font-bold mb-6 text-white">
+                                Company
+                            </h3>
                             <ul className="space-y-3">
                                 <li>
                                     <a
@@ -165,6 +166,7 @@ const Newsletter = () => {
                         </motion.div>
                     </div>
 
+                    {/* Our Sites Section */}
                     <div className="md:col-span-5">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -172,46 +174,88 @@ const Newsletter = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className="text-xl font-bold mb-6">
-                                Subscribe to our newsletter
+                            <h3 className="text-xl font-bold mb-6 text-white">
+                                Our Sites
                             </h3>
                             <p className="text-gray-300 mb-6">
-                                The latest news, articles, and resources, sent
-                                to your inbox weekly. Stay updated on market
-                                trends and exclusive property listings.
+                                Visit our premier real estate developments
+                                across the city. Each location offers unique
+                                amenities and living experiences.
                             </p>
 
-                            <form
-                                onSubmit={handleSubmit}
-                                className="space-y-4 md:space-y-0 relative max-w-lg"
-                            >
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <div className="flex-grow relative">
-                                        <Input
-                                            type="email"
-                                            value={email}
-                                            onChange={(e) =>
-                                                setEmail(e.target.value)
-                                            }
-                                            placeholder="Enter your email"
-                                            className="flex-grow bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#E64A4A] focus:ring-[#E64A4A] pr-10"
-                                            required
-                                        />
-                                        <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <div className="space-y-4 bg-black/30 rounded-xl p-4 border border-white/10 shadow-lg">
+                                {/* Site 1 */}
+                                <a href="#" className="block group">
+                                    <div className="flex items-start gap-4 p-3 rounded-lg transition-all hover:bg-[#E64A4A]/10">
+                                        <div className="bg-[#E64A4A]/20 p-2 rounded-lg">
+                                            <MapPin className="w-6 h-6 text-[#E64A4A]" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-white group-hover:text-[#E64A4A] transition-colors">
+                                                Skyline Heights
+                                            </h4>
+                                            <p className="text-sm text-gray-300">
+                                                123 Prosperity Avenue, Baner,
+                                                Pune
+                                            </p>
+                                        </div>
                                     </div>
-                                    <motion.div
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <Button
-                                            type="submit"
-                                            className="whitespace-nowrap rounded-md bg-[#E64A4A] hover:bg-[#B32626] text-white"
-                                        >
-                                            Subscribe
-                                        </Button>
-                                    </motion.div>
-                                </div>
-                            </form>
+                                </a>
+
+                                {/* Site 2 */}
+                                <a href="#" className="block group">
+                                    <div className="flex items-start gap-4 p-3 rounded-lg transition-all hover:bg-[#E64A4A]/10">
+                                        <div className="bg-[#E64A4A]/20 p-2 rounded-lg">
+                                            <MapPin className="w-6 h-6 text-[#E64A4A]" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-white group-hover:text-[#E64A4A] transition-colors">
+                                                Riverside Residences
+                                            </h4>
+                                            <p className="text-sm text-gray-300">
+                                                456 Waterfront Drive, Koregaon
+                                                Park, Pune
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                {/* Site 3 */}
+                                <a href="#" className="block group">
+                                    <div className="flex items-start gap-4 p-3 rounded-lg transition-all hover:bg-[#E64A4A]/10">
+                                        <div className="bg-[#E64A4A]/20 p-2 rounded-lg">
+                                            <MapPin className="w-6 h-6 text-[#E64A4A]" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-white group-hover:text-[#E64A4A] transition-colors">
+                                                Golden Meadows
+                                            </h4>
+                                            <p className="text-sm text-gray-300">
+                                                789 Serenity Lane, Hinjewadi,
+                                                Pune
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                {/* Site 4 */}
+                                <a href="#" className="block group">
+                                    <div className="flex items-start gap-4 p-3 rounded-lg transition-all hover:bg-[#E64A4A]/10">
+                                        <div className="bg-[#E64A4A]/20 p-2 rounded-lg">
+                                            <MapPin className="w-6 h-6 text-[#E64A4A]" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-white group-hover:text-[#E64A4A] transition-colors">
+                                                Urban Oasis
+                                            </h4>
+                                            <p className="text-sm text-gray-300">
+                                                101 City Center Road, Viman
+                                                Nagar, Pune
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
