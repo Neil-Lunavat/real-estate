@@ -14,6 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { scrollToSection } from "@/utils/scrollUtils";
+import { openContactPopup } from "./PopUp";
 
 interface SpecCategory {
     id: string;
@@ -352,16 +353,19 @@ const ProjectSpecifications = () => {
 
                                             <div className="pt-6">
                                                 <Button
-                                                    variant="link"
-                                                    className="mt-4 border-[#E64A4A] text-[#B32626] hover:bg-[#F5F5F5]"
-                                                    onClick={(e) =>
-                                                        scrollToSection(
-                                                            e as any,
-                                                            "#contact"
-                                                        )
-                                                    }
+                                                    variant="default"
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        openContactPopup();
+                                                    }}
+                                                    size="lg"
+                                                    className="relative rounded-full text-white text-lg font-medium overflow-hidden group"
                                                 >
-                                                    Request More Details
+                                                    <span className="absolute inset-0 bg-gradient-to-r from-[#E64A4A] to-[#B32626] opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+                                                    <span className="absolute inset-0 border-2 border-transparent group-hover:border-[#E64A4A] rounded-full transition-all duration-300"></span>
+                                                    <span className="relative z-10 group-hover:text-[#424242]">
+                                                        Contact Us
+                                                    </span>
                                                 </Button>
                                             </div>
                                         </div>

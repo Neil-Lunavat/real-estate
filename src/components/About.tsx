@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { images } from "../utils/imageImports";
-import { Trophy, Building2, Hammer, Ruler } from "lucide-react";
+import { Trophy, Building2, Hammer, TowerControl } from "lucide-react";
 
 interface StatItem {
     value: string;
@@ -28,7 +28,7 @@ const stats: StatItem[] = [
     {
         value: "65m",
         label: "Building Height",
-        icon: <Ruler className="w-8 h-8 text-[#E64A4A] mx-auto" />,
+        icon: <TowerControl className="w-8 h-8 text-[#E64A4A] mx-auto" />,
     },
 ];
 

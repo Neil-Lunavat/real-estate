@@ -9,7 +9,7 @@ const Footer = () => {
                         <p className="text-sm">
                             Copyright {currentYear} ©{" "}
                             <span className="text-white font-medium">
-                                Estate
+                                Bunty Group
                             </span>
                             . All Rights Reserved.
                         </p>

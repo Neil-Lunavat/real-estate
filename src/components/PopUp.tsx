@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar } from "lucide-react";
+import { X, MapPin, Calendar } from "lucide-react";
 
 import {
     Dialog,
@@ -88,7 +88,7 @@ const PopUp = () => {
                 if (!open) handleClose();
             }}
         >
-            <DialogContent className="sm:max-w-lg rounded-lg p-0 overflow-hidden border-none shadow-xl">
+            <DialogContent className="sm:max-w-lg rounded-lg p-0 overflow-hidden border-none shadow-xl [&>button]:hidden">
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
@@ -103,6 +103,14 @@ const PopUp = () => {
                                 <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2"></div>
                                 <div className="absolute bottom-0 left-10 w-12 h-12 rounded-full bg-white/10"></div>
 
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="absolute top-4 right-4 z-50 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/40 transition-colors"
+                                    aria-label="Close dialog"
+                                >
+                                    <X className="h-4 w-4" strokeWidth={3} />
+                                </button>
+
                                 {/* Logo and Brand Name */}
                                 <div className="z-10 flex items-center gap-3">
                                     <div className="bg-white rounded-lg p-1.5 shadow-md">
@@ -113,7 +121,7 @@ const PopUp = () => {
                                         />
                                     </div>
                                     <span className="text-white font-bold text-xl">
-                                        Estate
+                                        Bunty Group
                                     </span>
                                 </div>
                             </div>

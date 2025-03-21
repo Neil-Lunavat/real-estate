@@ -40,7 +40,7 @@ const Newsletter = () => {
                                     </div>
                                 </div>
                                 <span className="text-2xl font-bold px-4 text-white">
-                                    Estate
+                                    Bunty Group
                                 </span>
                             </div>
                             <p className="text-gray-300 mb-8 leading-relaxed">

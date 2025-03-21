@@ -91,7 +91,7 @@ const Navbar = () => {
                                 scrolled ? "text-primary" : "text-white"
                             }`}
                         >
-                            Real Estate
+                            Bunty Group
                         </span>
                     </a>
                 </div>
@@ -135,7 +135,6 @@ const Navbar = () => {
                             onClick={(e) => {
                                 e.preventDefault();
                                 openContactPopup();
-                                // scrollToSection(e, "#contact")
                             }}
                         >
                             Contact Us
@@ -211,11 +210,10 @@ const Navbar = () => {
                         className="mt-2 rounded-full bg-gradient-to-r from-[#E64A4A] to-[#B32626] border-none transition-all"
                     >
                         <a
-                            href="#contact"
+                            href=""
                             onClick={(e) => {
                                 e.preventDefault();
                                 openContactPopup();
-                                // scrollToSection(e, "#contact");
                                 setIsOpen(false);
                             }}
                         >
