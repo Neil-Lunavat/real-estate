@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { MapPin } from "lucide-react";
 
 import {
     Dialog,
@@ -10,56 +11,50 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 
+let openPopupFunction: (() => void) | null = null;
+
+export const openContactPopup = () => {
+    if (openPopupFunction) {
+        openPopupFunction();
+    }
+};
+
 const PopUp = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [email, setEmail] = useState("");
     const [_, setScrollCount] = useState(0);
-    const [__, setHasSubscribed] = useState(false);
+    const [nextPopupAt, setNextPopupAt] = useState(80); // Start with 2 scrolls
+    const [hasSubscribed, setHasSubscribed] = useState(false);
+    const [count, setCount] = useState(1);
 
     // Using refs to track popup state to prevent race conditions
     const isOpenRef = useRef(false);
-    const isPopupCooldownRef = useRef(false);
 
     // Update ref when state changes
     useEffect(() => {
-        isOpenRef.current = isOpen;
+        isOpenRef.current = !isOpen;
     }, [isOpen]);
 
     useEffect(() => {
-        // Check if user has already subscribed in this session
-        const sessionHasSubscribed =
-            sessionStorage.getItem("hasSubscribed") === "true";
-
-        setHasSubscribed(sessionHasSubscribed);
+        openPopupFunction = () => setIsOpen(true);
+        isOpenRef.current = isOpen;
 
         // Track scrolling
         const handleScroll = () => {
-            // Don't track scrolls if user has subscribed or if popup is in cooldown
-            if (sessionHasSubscribed || isPopupCooldownRef.current) return;
+            // Don't track scrolls if user has subscribed
+            if (hasSubscribed) return;
 
             setScrollCount((prevCount) => {
                 const newCount = prevCount + 1;
 
-                // Show popup every 2 scrolls if it's not already open
-                if (
-                    newCount % 2 === 0 &&
-                    !isOpenRef.current &&
-                    !isPopupCooldownRef.current
-                ) {
-                    // Set cooldown to prevent multiple popups
-                    isPopupCooldownRef.current = true;
-
-                    // Show popup after a small delay
-                    setTimeout(() => {
-                        setIsOpen(true);
-
-                        // Reset cooldown after a longer period to prevent rapid re-triggers
-                        setTimeout(() => {
-                            isPopupCooldownRef.current = false;
-                        }, 5000); // 5 second cooldown between possible popup triggers
-                    }, 1000);
+                // Show popup when scroll count reaches the next threshold
+                if (newCount >= nextPopupAt && !isOpenRef.current) {
+                    setIsOpen(true);
+                    // Use a progressive increment: each time, wait longer before showing again
+                    setNextPopupAt(nextPopupAt + 250 * count);
+                    console.log(newCount);
                 }
 
+                setCount(count + 1);
                 return newCount;
             });
         };
@@ -68,22 +63,16 @@ const PopUp = () => {
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            openPopupFunction = null;
         };
-    }, []);
+    }, [hasSubscribed, nextPopupAt, isOpen]);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Submitted email:", email);
-
-        // Store subscription status
-        sessionStorage.setItem("hasSubscribed", "true");
+    const handleButtonClick = () => {
+        // Update subscription status in state
         setHasSubscribed(true);
 
         // Close the popup
         setIsOpen(false);
-
-        // Clear form
-        setEmail("");
     };
 
     const handleClose = () => {
@@ -98,7 +87,7 @@ const PopUp = () => {
                 if (!open) handleClose();
             }}
         >
-            <DialogContent className="sm:max-w-md rounded-lg p-0 overflow-hidden border-none shadow-xl">
+            <DialogContent className="sm:max-w-lg rounded-lg p-0 overflow-hidden border-none shadow-xl">
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
@@ -113,9 +102,10 @@ const PopUp = () => {
                                 <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2"></div>
                                 <div className="absolute bottom-0 left-10 w-12 h-12 rounded-full bg-white/10"></div>
 
-                                <h3 className="text-xl font-semibold text-slate-200 z-10">
-                                    Logo
-                                </h3>
+                                {/* Logo image or text */}
+                                <div className="z-10 text-white font-bold text-xl">
+                                    Estate
+                                </div>
                             </div>
 
                             <div className="p-6 pt-8 bg-white">
@@ -129,38 +119,43 @@ const PopUp = () => {
                                     </DialogDescription>
                                 </DialogHeader>
 
-                                <form
-                                    onSubmit={handleSubmit}
-                                    className="mt-6 space-y-4"
-                                >
-                                    <div className="space-y-2">
-                                        {/* <Input
-                                            type="email"
-                                            placeholder="your-email@example.com"
-                                            className="w-full"
-                                            value={email}
-                                            onChange={(e) =>
-                                                setEmail(e.target.value)
-                                            }
-                                            required
-                                        /> */}
+                                {/* Google Maps section */}
+                                <div className="mt-6 rounded-lg overflow-hidden border border-gray-200">
+                                    <div className="bg-gray-100 p-3 flex items-center gap-2 border-b border-gray-200">
+                                        <MapPin className="text-sky-600 h-5 w-5" />
+                                        <span className="text-sm font-medium">
+                                            Find us in Pune, Maharashtra
+                                        </span>
                                     </div>
+                                    <div className="h-48 w-full relative">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121058.92836678364!2d73.7929539582031!3d18.524564999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1647580686452!5m2!1sen!2sin"
+                                            width="100%"
+                                            height="100%"
+                                            style={{ border: 0 }}
+                                            allowFullScreen={false}
+                                            loading="lazy"
+                                            referrerPolicy="no-referrer-when-downgrade"
+                                            title="Estate Location in Pune"
+                                            className="w-full h-full"
+                                        ></iframe>
+                                    </div>
+                                </div>
 
+                                <div className="mt-6 space-y-4">
                                     <motion.div
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                     >
                                         <Button
-                                            type="submit"
-                                            onClick={() =>
-                                                setHasSubscribed(true)
-                                            }
+                                            type="button"
+                                            onClick={handleButtonClick}
                                             className="w-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-medium py-2 rounded-md transition-all"
                                         >
-                                            Click Here
+                                            Book Your Visit Now
                                         </Button>
                                     </motion.div>
-                                </form>
+                                </div>
 
                                 <div className="flex items-center justify-center mt-6 space-x-1">
                                     <div className="w-2 h-2 rounded-full bg-sky-400"></div>

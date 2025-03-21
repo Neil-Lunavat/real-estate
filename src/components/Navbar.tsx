@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/utils/scrollUtils";
 import { Button } from "@/components/ui/button";
+import { openContactPopup } from "./PopUp";
 
 interface NavItem {
     label: string;
@@ -13,6 +14,7 @@ const navItems: NavItem[] = [
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Amenities", href: "#amenities" },
+    { label: "Specifications", href: "#specifications" },
 ];
 
 const Navbar = () => {
@@ -119,7 +121,11 @@ const Navbar = () => {
                     >
                         <a
                             href="#contact"
-                            onClick={(e) => scrollToSection(e, "#contact")}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                openContactPopup();
+                                // scrollToSection(e, "#contact")
+                            }}
                         >
                             Contact Us
                         </a>
@@ -196,7 +202,9 @@ const Navbar = () => {
                         <a
                             href="#contact"
                             onClick={(e) => {
-                                scrollToSection(e, "#contact");
+                                e.preventDefault();
+                                openContactPopup();
+                                // scrollToSection(e, "#contact");
                                 setIsOpen(false);
                             }}
                         >
