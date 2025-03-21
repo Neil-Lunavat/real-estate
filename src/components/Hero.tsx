@@ -75,7 +75,7 @@ const Hero = () => {
                         whileTap={{ scale: 0.95 }}
                         className="inline-block"
                     >
-                        <Button
+                        {/* <Button
                             variant="default"
                             size="lg"
                             className="relative rounded-full text-white text-lg font-medium overflow-hidden group"
@@ -91,7 +91,7 @@ const Hero = () => {
                                     Contact Us
                                 </span>
                             </a>
-                        </Button>
+                        </Button> */}
                     </motion.div>
                 </motion.div>
             </div>

@@ -14,20 +14,6 @@ interface FormData {
     message: string;
 }
 
-const maharashtraCities = [
-    "Mumbai",
-    "Pune",
-    "Nagpur",
-    "Thane",
-    "Nashik",
-    "Aurangabad",
-    "Solapur",
-    "Amravati",
-    "Kolhapur",
-    "Akola",
-    "Other",
-];
-
 const Contact = () => {
     const [formData, setFormData] = useState<FormData>({
         name: "",
@@ -37,8 +23,6 @@ const Contact = () => {
         message: "",
     });
 
-    const [selectedCity, setSelectedCity] = useState<string>("");
-
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -46,11 +30,6 @@ const Contact = () => {
     ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedCity(e.target.value);
-        setFormData((prev) => ({ ...prev, city: e.target.value }));
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -65,7 +44,6 @@ const Contact = () => {
             city: "",
             message: "",
         });
-        setSelectedCity("");
     };
 
     return (
@@ -189,7 +167,7 @@ const Contact = () => {
                                                 htmlFor="name"
                                                 className="block text-sm font-medium text-[#424242]"
                                             >
-                                                Your Name
+                                                Name
                                             </label>
                                             <Input
                                                 id="name"
@@ -206,7 +184,7 @@ const Contact = () => {
                                                 htmlFor="email"
                                                 className="block text-sm font-medium text-[#424242]"
                                             >
-                                                Your Email
+                                                Email
                                             </label>
                                             <Input
                                                 type="email"
@@ -247,28 +225,15 @@ const Contact = () => {
                                             >
                                                 City
                                             </label>
-                                            <select
+                                            <Input
                                                 id="city"
                                                 name="city"
-                                                value={selectedCity}
-                                                onChange={handleCityChange}
-                                                className="w-full rounded-md border border-input px-3 py-2 bg-transparent shadow-xs focus:border-[#B32626] focus:ring-[#B32626] text-base outline-none md:text-sm"
+                                                value={formData.city}
+                                                onChange={handleChange}
+                                                placeholder="Add your city"
+                                                className="w-full border-gray-300 focus:border-[#B32626] focus:ring-[#B32626]"
                                                 required
-                                            >
-                                                <option value="" disabled>
-                                                    Select your city
-                                                </option>
-                                                {maharashtraCities.map(
-                                                    (city) => (
-                                                        <option
-                                                            key={city}
-                                                            value={city}
-                                                        >
-                                                            {city}
-                                                        </option>
-                                                    )
-                                                )}
-                                            </select>
+                                            />
                                         </div>
                                     </div>
 

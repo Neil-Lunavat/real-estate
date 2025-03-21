@@ -52,7 +52,6 @@ const PopUp = () => {
                     setIsOpen(true);
                     // Use a progressive increment: each time, wait longer before showing again
                     setNextPopupAt(nextPopupAt + 250 * count);
-                    console.log(newCount);
                 }
 
                 setCount(count + 1);
@@ -147,7 +146,7 @@ const PopUp = () => {
                                     </div>
                                     <div className="h-48 w-full relative">
                                         <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121058.92836678364!2d73.7929539582031!3d18.524564999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1647580686452!5m2!1sen!2sin"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15126.88992694723!2d73.81881175091436!3d18.586546220314894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b8b1c1071e5b%3A0x6fa4d803cb250875!2sDapodi%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1742576682883!5m2!1sen!2sin"
                                             width="100%"
                                             height="100%"
                                             style={{ border: 0 }}

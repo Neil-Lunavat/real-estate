@@ -363,8 +363,8 @@ const ProjectSpecifications = () => {
                                                 >
                                                     <span className="absolute inset-0 bg-gradient-to-r from-[#E64A4A] to-[#B32626] opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
                                                     <span className="absolute inset-0 border-2 border-transparent group-hover:border-[#E64A4A] rounded-full transition-all duration-300"></span>
-                                                    <span className="relative z-10 group-hover:text-[#424242]">
-                                                        Contact Us
+                                                    <span className="relative z-10 group-hover:text-[#E64A4A]">
+                                                        Request more details
                                                     </span>
                                                 </Button>
                                             </div>

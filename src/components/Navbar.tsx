@@ -128,7 +128,7 @@ const Navbar = () => {
                     ))}
                     <Button
                         asChild
-                        className="rounded-full bg-gradient-to-r from-[#E64A4A] to-[#B32626] border-none hover:shadow-lg transition-all hover:-translate-y-1"
+                        className="rounded-full text-white bg-gradient-to-r from-[#E64A4A] to-[#B32626] border-none hover:shadow-lg transition-all hover:-translate-y-1"
                     >
                         <a
                             href="#contact"
