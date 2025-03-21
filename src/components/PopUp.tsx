@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
 
 import {
     Dialog,
@@ -10,6 +10,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
+import { images } from "@/utils/imageImports";
 
 let openPopupFunction: (() => void) | null = null;
 
@@ -97,33 +98,42 @@ const PopUp = () => {
                             transition={{ duration: 0.3 }}
                         >
                             {/* Gradient header */}
-                            <div className="h-16 bg-gradient-to-r from-sky-500 to-blue-600 flex items-center justify-between px-6 relative overflow-hidden">
+                            <div className="h-16 bg-gradient-to-r from-[#E64A4A] to-[#B32626] flex items-center justify-between px-6 relative overflow-hidden">
                                 {/* Decorative circles */}
                                 <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2"></div>
                                 <div className="absolute bottom-0 left-10 w-12 h-12 rounded-full bg-white/10"></div>
 
-                                {/* Logo image or text */}
-                                <div className="z-10 text-white font-bold text-xl">
-                                    Estate
+                                {/* Logo and Brand Name */}
+                                <div className="z-10 flex items-center gap-3">
+                                    <div className="bg-white rounded-lg p-1.5 shadow-md">
+                                        <img
+                                            src={images.logo}
+                                            alt="Bunty Group Logo"
+                                            className="h-8 object-contain"
+                                        />
+                                    </div>
+                                    <span className="text-white font-bold text-xl">
+                                        Estate
+                                    </span>
                                 </div>
                             </div>
 
                             <div className="p-6 pt-8 bg-white">
                                 <DialogHeader>
-                                    <DialogTitle className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-sky-800">
+                                    <DialogTitle className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#424242] to-[#B32626]">
                                         Book an Appointment
                                     </DialogTitle>
-                                    <DialogDescription className="text-gray-600">
+                                    <DialogDescription className="text-[#424242]">
                                         Get the best rates for 2, 3 and 4 BHK
                                         flats!
                                     </DialogDescription>
                                 </DialogHeader>
 
                                 {/* Google Maps section */}
-                                <div className="mt-6 rounded-lg overflow-hidden border border-gray-200">
-                                    <div className="bg-gray-100 p-3 flex items-center gap-2 border-b border-gray-200">
-                                        <MapPin className="text-sky-600 h-5 w-5" />
-                                        <span className="text-sm font-medium">
+                                <div className="mt-6 rounded-lg overflow-hidden border border-[#F5F5F5]">
+                                    <div className="bg-[#F5F5F5] p-3 flex items-center gap-2 border-b border-[#F5F5F5]">
+                                        <MapPin className="text-[#B32626] h-5 w-5" />
+                                        <span className="text-sm font-medium text-[#424242]">
                                             Find us in Pune, Maharashtra
                                         </span>
                                     </div>
@@ -150,18 +160,19 @@ const PopUp = () => {
                                         <Button
                                             type="button"
                                             onClick={handleButtonClick}
-                                            className="w-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-medium py-2 rounded-md transition-all"
+                                            className="w-full bg-gradient-to-r from-[#E64A4A] to-[#B32626] hover:from-[#B32626] hover:to-[#B32626] text-white font-medium py-2 rounded-md transition-all flex items-center justify-center gap-2"
                                         >
+                                            <Calendar className="w-5 h-5" />
                                             Book Your Visit Now
                                         </Button>
                                     </motion.div>
                                 </div>
 
                                 <div className="flex items-center justify-center mt-6 space-x-1">
-                                    <div className="w-2 h-2 rounded-full bg-sky-400"></div>
-                                    <div className="w-2 h-2 rounded-full bg-sky-500"></div>
-                                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                    <div className="w-2 h-2 rounded-full bg-[#E64A4A]"></div>
+                                    <div className="w-2 h-2 rounded-full bg-[#E64A4A]/80"></div>
+                                    <div className="w-2 h-2 rounded-full bg-[#B32626]/80"></div>
+                                    <div className="w-2 h-2 rounded-full bg-[#B32626]"></div>
                                 </div>
                             </div>
                         </motion.div>

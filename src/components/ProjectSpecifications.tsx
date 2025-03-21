@@ -39,7 +39,7 @@ const ProjectSpecifications = () => {
             description:
                 "Foundation & core construction elements built for durability and safety",
             features: ["Earthquake-Resistant R.C.C. Frame Structure"],
-            color: "bg-amber-500",
+            color: "bg-[#FFC107]",
         },
         {
             id: "doors-windows",
@@ -55,7 +55,7 @@ const ProjectSpecifications = () => {
                 "3-Track Powder Coated Aluminum Sliding Windows with Mosquito Net & MS Safety Grills",
                 "MS Railings & Anti-Skid Tiles",
             ],
-            color: "bg-blue-500",
+            color: "bg-[#B32626]",
         },
         {
             id: "bathroom",
@@ -68,7 +68,7 @@ const ProjectSpecifications = () => {
                 "Jaguar / Cera or Equivalent Sanitary Ware",
                 "CPVC Concealed Plumbing",
             ],
-            color: "bg-sky-500",
+            color: "bg-[#E64A4A]",
         },
         {
             id: "electrification",
@@ -83,7 +83,7 @@ const ProjectSpecifications = () => {
                 "Exhaust Fan Connection Setup in Kitchen & Bathrooms",
                 "Inverter Connection Setup",
             ],
-            color: "bg-yellow-500",
+            color: "bg-[#FFC107]",
         },
         {
             id: "paints",
@@ -94,7 +94,7 @@ const ProjectSpecifications = () => {
                 "2-Coat Putty & OBD Internal Paint",
                 "Damp-Proof Apex External Paint",
             ],
-            color: "bg-pink-500",
+            color: "bg-[#E64A4A]",
         },
         {
             id: "flooring",
@@ -102,7 +102,7 @@ const ProjectSpecifications = () => {
             icon: <Footprints className="w-6 h-6" />,
             description: "Premium floor surfaces for beauty and durability",
             features: ["600x800 Vitrified Tiles in Living, Dining & Bedrooms"],
-            color: "bg-green-500",
+            color: "bg-[#424242]",
         },
         {
             id: "kitchen",
@@ -117,7 +117,7 @@ const ProjectSpecifications = () => {
                 "Washing Machine Connection Setup",
                 "Dado Tiles Above Platform",
             ],
-            color: "bg-red-500",
+            color: "bg-[#B32626]",
         },
     ];
 
@@ -163,11 +163,11 @@ const ProjectSpecifications = () => {
     return (
         <section
             id="specifications"
-            className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+            className="py-20 bg-gradient-to-b from-[#F5F5F5] to-white relative overflow-hidden"
         >
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full opacity-30 -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-10 w-64 h-64 bg-sky-100 rounded-full opacity-30 translate-y-1/2"></div>
+            <div className="absolute top-0 right-0 w-72 h-72 bg-[#F5F5F5] rounded-full opacity-30 -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-10 w-64 h-64 bg-[#F5F5F5] rounded-full opacity-30 translate-y-1/2"></div>
 
             <div className="container mx-auto px-4 relative z-10 max-w-7xl">
                 <motion.div
@@ -177,15 +177,15 @@ const ProjectSpecifications = () => {
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                 >
-                    <span className="text-sm font-semibold text-sky-600 tracking-wider uppercase mb-2 block">
+                    <span className="text-sm font-semibold text-[#B32626] tracking-wider uppercase mb-2 block">
                         Premium Construction
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-sky-800">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#424242] to-[#B32626]">
                         Building{" "}
                         <span className="font-normal">Specifications</span>
                     </h2>
-                    <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-blue-500 my-4 mx-auto rounded-full"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                    <div className="w-16 h-1 bg-gradient-to-r from-[#E64A4A] to-[#B32626] my-4 mx-auto rounded-full"></div>
+                    <p className="text-[#424242] max-w-2xl mx-auto">
                         Experience the quality of materials and craftsmanship
                         that goes into every aspect of our construction
                     </p>
@@ -195,10 +195,10 @@ const ProjectSpecifications = () => {
                     {/* Timeline */}
                     <div ref={timelineRef} className="lg:col-span-4 relative">
                         <div className="sticky top-24 space-y-2 max-h-[80vh] overflow-y-auto pr-4 pb-10">
-                            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                            <h3 className="text-xl font-semibold mb-4 text-[#424242]">
                                 Construction Journey
                             </h3>
-                            <div className="relative border-l-2 border-gray-200 pl-8 space-y-8">
+                            <div className="relative border-l-2 border-[#F5F5F5] pl-8 space-y-8">
                                 {specCategories.map((category, index) => {
                                     const isActive =
                                         category.id === activeCategory;
@@ -242,8 +242,8 @@ const ProjectSpecifications = () => {
                                                 }
                                                 className={`flex items-start gap-3 cursor-pointer transition-all rounded-lg p-3 ${
                                                     isActive
-                                                        ? "bg-gray-100 shadow-sm"
-                                                        : "hover:bg-gray-50"
+                                                        ? "bg-[#F5F5F5] shadow-sm"
+                                                        : "hover:bg-[#F5F5F5]"
                                                 }`}
                                             >
                                                 <div
@@ -255,12 +255,12 @@ const ProjectSpecifications = () => {
                                                     <h4 className="text-base font-medium">
                                                         {category.title}
                                                     </h4>
-                                                    <p className="text-sm text-gray-500 mt-1">
+                                                    <p className="text-sm text-[#424242] mt-1">
                                                         {category.description}
                                                     </p>
                                                 </div>
                                                 {isActive && (
-                                                    <ArrowRight className="ml-auto w-5 h-5 text-sky-500" />
+                                                    <ArrowRight className="ml-auto w-5 h-5 text-[#E64A4A]" />
                                                 )}
                                             </div>
                                         </motion.div>
@@ -292,13 +292,13 @@ const ProjectSpecifications = () => {
                                                 {activeCategoryDetails.icon}
                                             </div>
                                             <div>
-                                                <h3 className="text-2xl font-bold text-gray-800">
+                                                <h3 className="text-2xl font-bold text-[#424242]">
                                                     {
                                                         activeCategoryDetails.title
                                                     }{" "}
                                                     Specifications
                                                 </h3>
-                                                <p className="text-gray-500">
+                                                <p className="text-[#424242]">
                                                     {
                                                         activeCategoryDetails.description
                                                     }
@@ -309,7 +309,7 @@ const ProjectSpecifications = () => {
                                         <div className="mt-8 space-y-5">
                                             <Badge
                                                 variant="outline"
-                                                className="bg-sky-50 text-sky-700 px-3 py-1 text-sm"
+                                                className="bg-[#F5F5F5] text-[#B32626] px-3 py-1 text-sm"
                                             >
                                                 Premium Quality Features
                                             </Badge>
@@ -340,8 +340,8 @@ const ProjectSpecifications = () => {
                                                                     {i + 1}
                                                                 </span>
                                                             </div>
-                                                            <div className="bg-gray-50 rounded-lg p-4 flex-grow shadow-sm border border-gray-100">
-                                                                <p className="text-gray-700">
+                                                            <div className="bg-[#F5F5F5] rounded-lg p-4 flex-grow shadow-sm border border-[#F5F5F5]">
+                                                                <p className="text-[#424242]">
                                                                     {feature}
                                                                 </p>
                                                             </div>
@@ -352,8 +352,8 @@ const ProjectSpecifications = () => {
 
                                             <div className="pt-6">
                                                 <Button
-                                                    variant="outline"
-                                                    className="mt-4 border-sky-500 text-sky-700 hover:bg-sky-50"
+                                                    variant="link"
+                                                    className="mt-4 border-[#E64A4A] text-[#B32626] hover:bg-[#F5F5F5]"
                                                     onClick={(e) =>
                                                         scrollToSection(
                                                             e as any,

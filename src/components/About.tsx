@@ -13,22 +13,22 @@ const stats: StatItem[] = [
     {
         value: "40+",
         label: "Years",
-        icon: <Trophy className="w-8 h-8 text-sky-500 mx-auto" />,
+        icon: <Trophy className="w-8 h-8 text-[#E64A4A] mx-auto" />,
     },
     {
         value: "40+",
         label: "Projects",
-        icon: <Building2 className="w-8 h-8 text-sky-500 mx-auto" />,
+        icon: <Building2 className="w-8 h-8 text-[#E64A4A] mx-auto" />,
     },
     {
         value: "5",
         label: "On Going",
-        icon: <Hammer className="w-8 h-8 text-sky-500 mx-auto" />,
+        icon: <Hammer className="w-8 h-8 text-[#E64A4A] mx-auto" />,
     },
     {
         value: "65m",
         label: "Building Height",
-        icon: <Ruler className="w-8 h-8 text-sky-500 mx-auto" />,
+        icon: <Ruler className="w-8 h-8 text-[#E64A4A] mx-auto" />,
     },
 ];
 
@@ -39,8 +39,8 @@ const About = () => {
             className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
         >
             {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-100 rounded-full opacity-40 -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full opacity-30 translate-y-1/2 -translate-x-1/2"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5F5F5] rounded-full opacity-40 -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#f5f5f5] rounded-full opacity-30 translate-y-1/2 -translate-x-1/2"></div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-10">
@@ -50,13 +50,13 @@ const About = () => {
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
                     >
-                        <span className="text-sm font-semibold text-sky-600 tracking-wider uppercase mb-2 block">
+                        <span className="text-sm font-semibold text-[#B32626] tracking-wider uppercase mb-2 block">
                             About Us
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-sky-800">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#424242] to-[#B32626]">
                             Our <span className="font-normal">Story</span>
                         </h2>
-                        <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-blue-500 my-4 mx-auto rounded-full"></div>
+                        <div className="w-16 h-1 bg-gradient-to-r from-[#E64A4A] to-[#B32626] my-4 mx-auto rounded-full"></div>
                         <p className="text-gray-600 max-w-2xl mx-auto">
                             More than 40 Years of Experience, 40+ projects
                             delivered.
@@ -80,7 +80,7 @@ const About = () => {
                                 className="w-full h-auto object-cover"
                             />
                             {/* Overlay gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-transparent opacity-60"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#B32626]/20 to-transparent opacity-60"></div>
                         </div>
                     </motion.div>
 
@@ -121,7 +121,7 @@ const About = () => {
                                                 <div className="mb-1">
                                                     {stat.icon}
                                                 </div>
-                                                <h3 className="text-2xl font-bold mb-0.5 text-sky-600">
+                                                <h3 className="text-2xl font-bold mb-0.5 text-[#B32626]">
                                                     {stat.value}
                                                 </h3>
                                                 <p className="text-gray-500 text-sm">
@@ -150,8 +150,8 @@ const About = () => {
                                                 scrollToSection(e, "#projects")
                                             }
                                         >
-                                            <span className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-500 opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
-                                            <span className="absolute inset-0 border-2 border-transparent group-hover:border-sky-500 rounded-full transition-all duration-300"></span>
+                                            <span className="absolute inset-0 bg-gradient-to-r from-[#E64A4A] to-[#B32626] opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+                                            <span className="absolute inset-0 border-2 border-transparent group-hover:border-[#E64A4A] rounded-full transition-all duration-300"></span>
                                             <span className="relative z-10 group-hover:text-gray-700">
                                                 Explore Our Projects
                                             </span>

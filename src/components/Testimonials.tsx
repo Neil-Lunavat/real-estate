@@ -76,7 +76,7 @@ const Testimonials = () => {
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                 >
-                    <span className="text-sm font-semibold text-sky-600 tracking-wider uppercase mb-2 block">
+                    <span className="text-sm font-semibold text-[#B32626] tracking-wider uppercase mb-2 block">
                         What People Say
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-sky-800">
@@ -167,7 +167,7 @@ const TestimonialCard = ({
                         <h3 className="text-xl font-bold text-gray-800 text-center">
                             {testimonial.name}
                         </h3>
-                        <p className="text-sky-600 text-sm font-medium mb-2 text-center">
+                        <p className="text-[#B32626] text-sm font-medium mb-2 text-center">
                             {testimonial.position}
                         </p>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { scrollToSection } from "@/utils/scrollUtils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 const Newsletter = () => {
     const [email, setEmail] = useState("");
@@ -17,13 +17,13 @@ const Newsletter = () => {
     };
 
     return (
-        <section className="relative py-20 bg-gradient-to-t from-gray-900 to-sky-900 text-white overflow-hidden">
+        <section className="relative py-20 bg-gradient-to-t from-[#424242] to-[#424242] text-white overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-500 opacity-10"></div>
-                <div className="absolute top-1/2 left-10 w-72 h-72 rounded-full bg-sky-600 opacity-10"></div>
-                <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-sky-400 opacity-10"></div>
-                <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-blue-700 opacity-5"></div>
+                <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#E64A4A] opacity-10"></div>
+                <div className="absolute top-1/2 left-10 w-72 h-72 rounded-full bg-[#B32626] opacity-10"></div>
+                <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-[#E64A4A] opacity-10"></div>
+                <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-[#B32626] opacity-5"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -37,7 +37,7 @@ const Newsletter = () => {
                         >
                             <div className="flex items-center mb-6">
                                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-                                    <span className="text-sky-600 text-xl font-bold">
+                                    <span className="text-[#B32626] text-xl font-bold">
                                         E
                                     </span>
                                 </div>
@@ -55,7 +55,7 @@ const Newsletter = () => {
                             <div className="flex space-x-4 mb-6">
                                 <a
                                     href="#"
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E64A4A]/30 transition-colors"
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -68,7 +68,7 @@ const Newsletter = () => {
                                 </a>
                                 <a
                                     href="#"
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E64A4A]/30 transition-colors"
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -81,7 +81,7 @@ const Newsletter = () => {
                                 </a>
                                 <a
                                     href="#"
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E64A4A]/30 transition-colors"
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -108,49 +108,57 @@ const Newsletter = () => {
                                 <li>
                                     <a
                                         href="#"
-                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
+                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                                         onClick={(e) =>
                                             scrollToSection(e, "#home")
                                         }
                                     >
-                                        <ArrowRight className="w-4 h-4 mr-2" />
-                                        Home
+                                        <ArrowRight className="w-4 h-4 mr-2 group-hover:text-[#E64A4A]" />
+                                        <span className="group-hover:text-[#E64A4A]">
+                                            Home
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         href="#about"
-                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
+                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                                         onClick={(e) =>
                                             scrollToSection(e, "#about")
                                         }
                                     >
-                                        <ArrowRight className="w-4 h-4 mr-2" />
-                                        About us
+                                        <ArrowRight className="w-4 h-4 mr-2 group-hover:text-[#E64A4A]" />
+                                        <span className="group-hover:text-[#E64A4A]">
+                                            About us
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         href="#projects"
-                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
+                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                                         onClick={(e) =>
                                             scrollToSection(e, "#projects")
                                         }
                                     >
-                                        <ArrowRight className="w-4 h-4 mr-2" />
-                                        Projects
+                                        <ArrowRight className="w-4 h-4 mr-2 group-hover:text-[#E64A4A]" />
+                                        <span className="group-hover:text-[#E64A4A]">
+                                            Projects
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         href="#contact"
-                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
+                                        className="text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                                         onClick={(e) =>
                                             scrollToSection(e, "#contact")
                                         }
                                     >
-                                        <ArrowRight className="w-4 h-4 mr-2" />
-                                        Contact us
+                                        <ArrowRight className="w-4 h-4 mr-2 group-hover:text-[#E64A4A]" />
+                                        <span className="group-hover:text-[#E64A4A]">
+                                            Contact us
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -178,23 +186,26 @@ const Newsletter = () => {
                                 className="space-y-4 md:space-y-0 relative max-w-lg"
                             >
                                 <div className="flex flex-col sm:flex-row gap-3">
-                                    <Input
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) =>
-                                            setEmail(e.target.value)
-                                        }
-                                        placeholder="Enter your email"
-                                        className="flex-grow bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-sky-400 focus:ring-sky-400"
-                                        required
-                                    />
+                                    <div className="flex-grow relative">
+                                        <Input
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) =>
+                                                setEmail(e.target.value)
+                                            }
+                                            placeholder="Enter your email"
+                                            className="flex-grow bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#E64A4A] focus:ring-[#E64A4A] pr-10"
+                                            required
+                                        />
+                                        <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                                    </div>
                                     <motion.div
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
                                         <Button
                                             type="submit"
-                                            className="whitespace-nowrap rounded-md bg-sky-500 hover:bg-sky-600 text-white"
+                                            className="whitespace-nowrap rounded-md bg-[#E64A4A] hover:bg-[#B32626] text-white"
                                         >
                                             Subscribe
                                         </Button>

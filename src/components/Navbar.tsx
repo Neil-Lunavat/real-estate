@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/utils/scrollUtils";
 import { Button } from "@/components/ui/button";
 import { openContactPopup } from "./PopUp";
+import { images } from "../utils/imageImports";
 
 interface NavItem {
     label: string;
@@ -64,7 +65,7 @@ const Navbar = () => {
         <nav
             className={`fixed top-0 z-50 w-full transition-all duration-300 ${
                 scrolled
-                    ? "bg-white shadow-md text-gray-800"
+                    ? "bg-white shadow-md text-[#424242]"
                     : "bg-transparent text-white"
             }`}
         >
@@ -75,12 +76,22 @@ const Navbar = () => {
                         onClick={(e) => scrollToSection(e, "#home")}
                         className="text-xl font-bold flex items-center space-x-2"
                     >
+                        {/* Logo and Brand Name */}
+                        <div className="z-10 flex items-center gap-3">
+                            <div className="bg-white rounded-lg p-1.5 shadow-md">
+                                <img
+                                    src={images.logo}
+                                    alt="Bunty Group Logo"
+                                    className="h-8 object-contain"
+                                />
+                            </div>
+                        </div>
                         <span
                             className={`${
                                 scrolled ? "text-primary" : "text-white"
                             }`}
                         >
-                            Estate
+                            Real Estate
                         </span>
                     </a>
                 </div>
@@ -96,7 +107,7 @@ const Navbar = () => {
                                 href={item.href}
                                 onClick={(e) => scrollToSection(e, item.href)}
                                 className={`hover:text-primary transition-colors py-2 ${
-                                    scrolled ? "text-gray-800" : "text-white"
+                                    scrolled ? "text-[#424242]" : "text-white"
                                 } ${
                                     activeSection === item.href.substring(1)
                                         ? "text-primary"
@@ -107,7 +118,7 @@ const Navbar = () => {
                             </a>
                             {/* Enhanced underline animation */}
                             <span
-                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500 transition-all duration-300 ${
+                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#E64A4A] to-[#B32626] transition-all duration-300 ${
                                     activeSection === item.href.substring(1)
                                         ? "w-full"
                                         : "w-0 group-hover:w-full"
@@ -117,7 +128,7 @@ const Navbar = () => {
                     ))}
                     <Button
                         asChild
-                        className="rounded-full bg-gradient-to-r from-sky-400 to-blue-500 border-none hover:shadow-lg transition-all hover:-translate-y-1"
+                        className="rounded-full bg-gradient-to-r from-[#E64A4A] to-[#B32626] border-none hover:shadow-lg transition-all hover:-translate-y-1"
                     >
                         <a
                             href="#contact"
@@ -141,7 +152,7 @@ const Navbar = () => {
                         aria-expanded={isOpen}
                         aria-controls="mobile-menu"
                         className={`focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 ${
-                            scrolled ? "text-gray-800" : "text-white"
+                            scrolled ? "text-[#424242]" : "text-white"
                         }`}
                     >
                         {isOpen ? (
@@ -158,10 +169,10 @@ const Navbar = () => {
             <div
                 id="mobile-menu"
                 className={`md:hidden fixed left-0 right-0 z-40 shadow-lg transition-all duration-300 overflow-hidden ${
-                    scrolled ? "bg-white/95" : "bg-gray-900/95"
+                    scrolled ? "bg-white/95" : "bg-[#424242]/95"
                 } backdrop-blur-sm ${
                     isOpen
-                        ? "max-h-[400px] opacity-100 border-b border-gray-200"
+                        ? "max-h-[400px] opacity-100 border-b border-[#F5F5F5]"
                         : "max-h-0 opacity-0 pointer-events-none"
                 }`}
                 aria-hidden={!isOpen}
@@ -172,7 +183,7 @@ const Navbar = () => {
                             key={item.label}
                             href={item.href}
                             className={`transition-colors py-3 px-2 block relative overflow-hidden ${
-                                scrolled ? "text-gray-800" : "text-white"
+                                scrolled ? "text-[#424242]" : "text-white"
                             } ${
                                 activeSection === item.href.substring(1)
                                     ? "text-primary"
@@ -186,7 +197,7 @@ const Navbar = () => {
                             {item.label}
                             {/* Gradient line indicator for active/hover state */}
                             <span
-                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500 transition-all duration-300 ${
+                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#E64A4A] to-[#B32626] transition-all duration-300 ${
                                     activeSection === item.href.substring(1)
                                         ? "w-full"
                                         : "w-0"
@@ -197,7 +208,7 @@ const Navbar = () => {
 
                     <Button
                         asChild
-                        className="mt-2 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 border-none transition-all"
+                        className="mt-2 rounded-full bg-gradient-to-r from-[#E64A4A] to-[#B32626] border-none transition-all"
                     >
                         <a
                             href="#contact"

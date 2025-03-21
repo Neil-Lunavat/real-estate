@@ -124,7 +124,7 @@ const Amenities = () => {
         <section id="amenities" className="py-20 bg-white flex center">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center mb-10">
-                    <span className="text-sm font-semibold text-sky-600 tracking-wider uppercase mb-2 block">
+                    <span className="text-sm font-semibold text-[#B32626] tracking-wider uppercase mb-2 block">
                         Premium Living
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold mb-2">
@@ -289,7 +289,7 @@ const Amenities = () => {
                 >
                     <Button
                         onClick={() => setShowAll(!showAll)}
-                        className="bg-sky-600 hover:bg-sky-700 text-white px-6 flex items-center gap-1 mx-auto"
+                        className="bg-[#B32626] hover:bg-sky-700 text-white px-6 flex items-center gap-1 mx-auto"
                     >
                         <span>
                             {!showAll ? "View all amenities" : "Hide amenities"}

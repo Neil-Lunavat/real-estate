@@ -26,7 +26,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#F5F5F5]">
                         Explore homes that <br />
                         fit your dreams
                     </span>
@@ -85,9 +85,9 @@ const Hero = () => {
                                 href="#contact"
                                 onClick={(e) => scrollToSection(e, "#contact")}
                             >
-                                <span className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-500 opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
-                                <span className="absolute inset-0 border-2 border-transparent group-hover:border-sky-500 rounded-full transition-all duration-300"></span>
-                                <span className="relative z-10 group-hover:text-gray-700">
+                                <span className="absolute inset-0 bg-gradient-to-r from-[#E64A4A] to-[#B32626] opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+                                <span className="absolute inset-0 border-2 border-transparent group-hover:border-[#E64A4A] rounded-full transition-all duration-300"></span>
+                                <span className="relative z-10 group-hover:text-[#424242]">
                                     Contact Us
                                 </span>
                             </a>
