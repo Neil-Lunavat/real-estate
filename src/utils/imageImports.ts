@@ -1,10 +1,10 @@
 // src/utils/imageImports.ts
-import backgroundImg from "../assets/images/background.jpg";
+import backgroundImg from "../assets/images/background.webp";
 import logoImg from "../assets/images/logo.png";
-import project1Img from "../assets/images/project-1.jpg";
-import project2Img from "../assets/images/project-2.jpg";
-import project3Img from "../assets/images/project-3.jpg";
-import project4Img from "../assets/images/project-4.jpg";
+import project1Img from "../assets/images/project-1.webp";
+import project2Img from "../assets/images/project-2.webp";
+import project3Img from "../assets/images/project-3.webp";
+import project4Img from "../assets/images/project-4.webp";
 import placeholderImg from "../assets/images/placeholder.webp";
 
 import gazeboImg from "../assets/images/gazebo.webp";
