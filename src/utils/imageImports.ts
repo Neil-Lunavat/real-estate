@@ -1,6 +1,6 @@
 // src/utils/imageImports.ts
 import backgroundImg from "../assets/images/background.webp";
-import logoImg from "../assets/images/logo.png";
+import logoImg from "../assets/images/logo.webp";
 import project1Img from "../assets/images/project-1.webp";
 import project2Img from "../assets/images/project-2.webp";
 import project3Img from "../assets/images/project-3.webp";

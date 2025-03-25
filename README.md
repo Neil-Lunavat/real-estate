@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+# Estate - Modern Real Estate Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive real estate website built with modern web technologies. The site showcases property listings, amenities, specifications, and provides multiple ways for potential clients to get in touch.
 
-Currently, two official plugins are available:
+![Website Screenshot](./src/assets/images/website.webp)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+The application is built using a modern frontend tech stack:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   **React 19** - UI library for building component-based interfaces
+-   **TypeScript** - For type-safe code and better developer experience
+-   **Vite** - Next-generation frontend build tool for faster development and optimized production builds
+-   **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+-   **Framer Motion** - Animation library for creating fluid UI transitions and interactions
+-   **shadcn/ui** - Accessible and customizable UI components built on Radix UI primitives
+-   **Embla Carousel** - Lightweight carousel component for image galleries and content sliders
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Project Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application follows a component-based architecture with a clean separation of concerns:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+![Application Structure](./src/assets/images/flowchart.svg)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Core Components
+
+-   **Layout Components** - `Navbar`, `Footer` for consistent site structure
+-   **Home Sections** - `Hero`, `About`, `Projects`, `Amenities`, `ProjectSpecifications`, `Contact`, `Newsletter`
+-   **UI Components** - Reusable UI elements from shadcn/ui customized for the application's design system
+
+### Features
+
+-   Responsive design that works on all device sizes
+-   Smooth scroll navigation between sections
+-   Interactive UI elements with hover animations
+-   Contact form for lead generation
+-   Strategically timed popup component for improved conversion
+-   Image carousels for property and amenity showcases
+
+## Design System
+
+The application uses a consistent design system with:
+
+-   Custom color palette based on sky/blue gradients
+-   Typography using the Inter font family
+-   Component variants for buttons, cards, and other UI elements
+-   Custom animations for enhanced user experience
+
+## Utilities
+
+-   `scrollUtils.ts` - Helper functions for smooth scrolling behavior
+-   `imageImports.ts` - Centralized image import management
+
+## Performance Considerations
+
+-   The application uses code splitting to optimize initial load times
+-   Images are optimized and served in modern formats (webp)
+-   Animations are GPU-accelerated for smooth performance
+-   CSS is modular and follows utility-first principles
+
+## 🙏 Acknowledgements
+
+Special thanks to my client for the opportunity to create this project and for the collaborative feedback throughout the development process.
+
+---
+
+## 👨‍💻 About the Developer
+
+This project was built by Neil Lunavat with ❣️. Connect with me on [LinkedIn](https://www.linkedin.com/in/neil-lunavat).
